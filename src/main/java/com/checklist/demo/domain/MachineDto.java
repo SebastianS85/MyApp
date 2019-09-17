@@ -20,4 +20,6 @@ public class MachineDto {
 
     private List<MachineOptionDto> optionList = new ArrayList<>();
 
+    private List<MachineTestDto> testList=new ArrayList<>();
+
 }

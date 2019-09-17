@@ -1,7 +1,7 @@
 package com.checklist.demo.service;
 
 
-import com.checklist.demo.domain.Test;
+import com.checklist.demo.domain.MachineTest;
 import com.checklist.demo.repository.TestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,15 +16,15 @@ public class TestDbService {
     private TestRepository testRepository;
 
 
-    public List<Test> getAllOptions() {
+    public List<MachineTest> getAllOptions() {
         return testRepository.findAll();
     }
 
-    public Test saveTest(Test test) {
+    public MachineTest saveTest(MachineTest test) {
         return testRepository.save(test);
     }
 
-    public Optional<Test> getMachineOpion(Long id) {
+    public Optional<MachineTest> getMachineOpion(Long id) {
         return testRepository.findById(id);
     }
 

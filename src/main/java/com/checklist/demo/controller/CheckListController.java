@@ -1,26 +1,33 @@
 package com.checklist.demo.controller;
 
 import com.checklist.demo.domain.*;
-import mapper.MachineMapper;
-import mapper.OptionMapper;
+import com.checklist.demo.mapper.MachineMapper;
+import com.checklist.demo.mapper.OptionMapper;
+import com.checklist.demo.service.MachineDbService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+
 @RestController
 @CrossOrigin(origins = "*")
 public class CheckListController {
 
-
+    @Autowired
     private MachineMapper machineMapper;
 
+    @Autowired
     private OptionMapper optionMapper;
+    @Autowired
+    private MachineDbService machineDbService;
+
 
     @GetMapping(value = "checklist",consumes = "application/json",produces ="application/json" )
-   public List<TestDto> getCheckList(@RequestBody RequestChecklist requestChecklist) {
-        List<TestDto> list= new ArrayList<>();
+   public List<MachineTestDto> getCheckList(@RequestBody RequestChecklist requestChecklist) {
+        List<MachineTestDto> list= new ArrayList<>();
 
 
         return list;
@@ -28,19 +35,13 @@ public class CheckListController {
 
     @RequestMapping(method = RequestMethod.GET, value = "machine")
       public Machine getMachine(){
-        System.out.println("ddddd");
-        MachineDto machine1= new MachineDto();
-        machine1.setMachineSerialNumber("a1");
-        machine1.setMachineType("a2");
-        MachineOptionDto optiondto1=new MachineOptionDto();
-        optiondto1.setId(1L);
-        optiondto1.setDescription("desc");
-        optiondto1.getMachineList().add(machine1);
-        machine1.getOptionList().add(optiondto1);
 
-       Machine machine=machineMapper.mapToMachine(machine1);
-        System.out.println(machine);
-//
+
         return null;
    }
+    @RequestMapping(method = RequestMethod.POST,value = "add/Machine",consumes = APPLICATION_JSON_VALUE)
+    public void createMachine(@RequestBody MachineDto machineDto) {
+        machineDbService.saveMachine(machineMapper.mapToMachine(machineDto));
+    }
+
 }

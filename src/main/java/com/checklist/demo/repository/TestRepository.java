@@ -1,22 +1,22 @@
 package com.checklist.demo.repository;
 
-import com.checklist.demo.domain.Test;
+import com.checklist.demo.domain.MachineTest;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface TestRepository extends CrudRepository<Test, Long> {
+public interface TestRepository extends CrudRepository<MachineTest, Long> {
 
     @Override
-    List<Test> findAll();
+    List<MachineTest> findAll();
 
 
     @Override
-    Optional<Test> findById(Long aLong);
+    Optional<MachineTest> findById(Long aLong);
 
     @Override
-    Test save(Test test);
+    MachineTest save(MachineTest test);
 
     @Override
     void deleteById(Long id);

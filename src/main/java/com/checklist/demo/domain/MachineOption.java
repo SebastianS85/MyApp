@@ -28,7 +28,13 @@ public class MachineOption {
     @Column(name = "DESCRIPTION")
     private String description;
 
-   @ManyToMany(mappedBy = "optionList")
+    @ManyToMany(mappedBy = "optionList")
     private List<Machine>machineList= new ArrayList<>();
+
+
+    @ManyToMany(mappedBy = "machineTList")
+   private List<MachineTest>machineTestOptionList=new ArrayList<>();
+
+
 }
 
