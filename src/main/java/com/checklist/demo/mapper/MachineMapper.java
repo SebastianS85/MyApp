@@ -1,7 +1,7 @@
 package com.checklist.demo.mapper;
+
 import com.checklist.demo.domain.Machine;
 import com.checklist.demo.domain.MachineDto;
-import com.checklist.demo.domain.MachineOption;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +17,8 @@ public class MachineMapper {
     private OptionMapper optionMapper;
     @Autowired
     private MachineTestMapper machineTestMapper;
-
+    @Autowired
+    private CreatedTestMapper createdTestMapper;
 
 
     public Machine mapToMachine(final MachineDto machineDto) {
@@ -25,17 +26,15 @@ public class MachineMapper {
         return new Machine(machineDto.getMachineSerialNumber()
                 , machineDto.getMachineType(),
                 optionMapper.mapToMachineOptionList(machineDto.getOptionList()),
-                machineTestMapper.mapToMachineTestList(machineDto.getTestList()));
+                createdTestMapper.mapToCreatedTestList(machineDto.getCreatedTestList()));
+
 
     }
 
     public MachineDto mapToMachineDto(final Machine machine) {
         return new MachineDto(machine.getMachineSerialNumber(), machine.getMachineType(),
                 optionMapper.mapToMachineOptionDtoList(machine.getOptionList()),
-                machineTestMapper.mapToMachineTestDtoList(machine.getTestList()));
-
-
-
+                createdTestMapper.mapToCreatedTestDtoList(machine.getCreatedTestList()));
 
 
     }
@@ -43,8 +42,8 @@ public class MachineMapper {
     public List<MachineDto> mapToMachineDtoList(final List<Machine> machineList) {
         return machineList.stream()
                 .map(machine -> new MachineDto(machine.getMachineSerialNumber(), machine.getMachineType(),
-                       optionMapper.mapToMachineOptionDtoList(machine.getOptionList()),
-                        machineTestMapper.mapToMachineTestDtoList(machine.getTestList())))
+                        optionMapper.mapToMachineOptionDtoList(machine.getOptionList()),
+                        createdTestMapper.mapToCreatedTestDtoList(machine.getCreatedTestList())))
                 .collect(Collectors.toList());
     }
 
@@ -53,7 +52,7 @@ public class MachineMapper {
         return machineDtoList.stream()
                 .map(machineDto -> new Machine(machineDto.getMachineSerialNumber(), machineDto.getMachineType(),
                         optionMapper.mapToMachineOptionList(machineDto.getOptionList()),
-                        machineTestMapper.mapToMachineTestList(machineDto.getTestList())))
+                        createdTestMapper.mapToCreatedTestList(machineDto.getCreatedTestList())))
                 .collect(Collectors.toList());
     }
 

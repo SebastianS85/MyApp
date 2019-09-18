@@ -5,10 +5,14 @@ import lombok.Data;
 
 
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
 
 
 @AllArgsConstructor
@@ -25,7 +29,8 @@ public class Machine {
     private String machineType;
 
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER )
+    @Fetch(value = FetchMode.SUBSELECT)
     @JoinTable(
             name = "MACHINE_OPTION_LIST",
             joinColumns = @JoinColumn(name = "MACHINE_SERIAL"),
@@ -34,11 +39,14 @@ public class Machine {
     private List<MachineOption> optionList=new ArrayList<>();
 
 
-    @ManyToMany
-    @JoinTable(
-            name = "MACHINE_TEST_LIST",
-            joinColumns = @JoinColumn(name = "MACHINE_SERIAL"),
-            inverseJoinColumns = @JoinColumn(name = "TEST_ID")
+    @OneToMany(
+            targetEntity = CreatedTest.class,
+            mappedBy = "machine",
+            cascade = {CascadeType.PERSIST,CascadeType.MERGE},
+            fetch = FetchType.EAGER
     )
-    private List<MachineTest> testList=new ArrayList<>();
+    private List<CreatedTest> createdTestList=new ArrayList<>();
+
+
+
 }

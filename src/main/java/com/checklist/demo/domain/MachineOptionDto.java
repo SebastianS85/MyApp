@@ -15,6 +15,6 @@ public class MachineOptionDto {
 
     private Long id;
     private String description;
-    private List<MachineDto> machineList= new ArrayList<>();
-    private List<MachineTest>machineTestOptionList=new ArrayList<>();
+    private List<MachineDto> machineList = new ArrayList<>();
+    private List<MachineTest> machineTestOptionList = new ArrayList<>();
 }

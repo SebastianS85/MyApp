@@ -9,7 +9,7 @@ import java.util.List;
 @NoArgsConstructor
 public class RequestChecklist {
 
-    private  Long machineId;
+    private Long machineId;
 
     private List<Long> optionId;
 }

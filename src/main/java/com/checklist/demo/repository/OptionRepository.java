@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface OptionRepository extends CrudRepository<MachineOption,Long> {
+public interface OptionRepository extends CrudRepository<MachineOption, Long> {
 
 
     @Override

@@ -1,8 +1,10 @@
 package com.checklist.demo.mapper;
+
 import com.checklist.demo.domain.MachineOption;
 import com.checklist.demo.domain.MachineOptionDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -41,7 +43,7 @@ public class OptionMapper {
         return machineOptionDtoList.stream()
                 .map(machineOptionDto -> new MachineOption(machineOptionDto.getId(), machineOptionDto.getDescription(),
                         machineMapper.mapToMachineList(machineOptionDto.getMachineList()),
-                       machineOptionDto.getMachineTestOptionList()))
+                        machineOptionDto.getMachineTestOptionList()))
                 .collect(Collectors.toList());
     }
 }
