@@ -2,9 +2,9 @@ package com.checklist.demo.mapper;
 
 import com.checklist.demo.domain.Machine;
 import com.checklist.demo.domain.MachineDto;
+import com.checklist.demo.service.CreatedTestServeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,49 +12,32 @@ import java.util.stream.Collectors;
 
 @Component
 public class MachineMapper {
-
     @Autowired
     private OptionMapper optionMapper;
+
     @Autowired
-    private MachineTestMapper machineTestMapper;
+    private CreatedTestServeService serveService;
     @Autowired
     private CreatedTestMapper createdTestMapper;
 
-
-    public Machine mapToMachine(final MachineDto machineDto) {
-
-        return new Machine(machineDto.getMachineSerialNumber()
-                , machineDto.getMachineType(),
-                optionMapper.mapToMachineOptionList(machineDto.getOptionList()),
-                createdTestMapper.mapToCreatedTestList(machineDto.getCreatedTestList()));
-
-
+    public MachineDto mapToMachineDto(Machine machine) {
+        return new MachineDto(machine.getMachineSerial(), machine.getMachineType(),
+                optionMapper.mapToMachineOptionDtoList(machine.getMachineOptions()),
+                createdTestMapper.mapToCreatedMachineTestDtoList(serveService.getTests(machine.getMachineSerial())));
     }
 
-    public MachineDto mapToMachineDto(final Machine machine) {
-        return new MachineDto(machine.getMachineSerialNumber(), machine.getMachineType(),
-                optionMapper.mapToMachineOptionDtoList(machine.getOptionList()),
-                createdTestMapper.mapToCreatedTestDtoList(machine.getCreatedTestList()));
-
-
+    public Machine mapToMachine(MachineDto machineDto) {
+        return new Machine(machineDto.getMachineSerial(), machineDto.getMachineType(),
+                optionMapper.mapToMachineOptionList(machineDto.getMachineOptions()));
     }
 
-    public List<MachineDto> mapToMachineDtoList(final List<Machine> machineList) {
+    public List<MachineDto> mapToMachineDtoList(List<Machine> machineList) {
         return machineList.stream()
-                .map(machine -> new MachineDto(machine.getMachineSerialNumber(), machine.getMachineType(),
-                        optionMapper.mapToMachineOptionDtoList(machine.getOptionList()),
-                        createdTestMapper.mapToCreatedTestDtoList(machine.getCreatedTestList())))
-                .collect(Collectors.toList());
+                .map(machine -> new MachineDto(machine.getMachineSerial(), machine.getMachineType(),
+                        optionMapper.mapToMachineOptionDtoList(machine.getMachineOptions()), createdTestMapper
+                        .mapToCreatedMachineTestDtoList(serveService.getTests(machine.getMachineSerial()))
+                )).collect(Collectors.toList());
+
     }
-
-    public List<Machine> mapToMachineList(final List<MachineDto> machineDtoList) {
-
-        return machineDtoList.stream()
-                .map(machineDto -> new Machine(machineDto.getMachineSerialNumber(), machineDto.getMachineType(),
-                        optionMapper.mapToMachineOptionList(machineDto.getOptionList()),
-                        createdTestMapper.mapToCreatedTestList(machineDto.getCreatedTestList())))
-                .collect(Collectors.toList());
-    }
-
 
 }

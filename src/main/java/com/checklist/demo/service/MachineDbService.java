@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MachineDbService {
@@ -13,19 +14,17 @@ public class MachineDbService {
     @Autowired
     MachineRepository machineRepository;
 
-    public List<Machine> getAllMachine() {
+    List<Machine> getAllMachines() {
         return machineRepository.findAll();
     }
 
-    public Machine saveMachine(Machine machine) {
+    Optional<Machine> findMachineBySerialNr(String serialNr) {
+        return findMachineBySerialNr(serialNr);
+    }
+
+    Machine saveMachine(Machine machine) {
         return machineRepository.save(machine);
     }
 
-    public Machine getMachineBySerialNumber(String serialNumber) {
-        return machineRepository.findByMachineSerialNumber(serialNumber);
-    }
 
-    public void deleteMachineBySerialNumber(String serialNumber) {
-        machineRepository.deleteByMachineSerialNumber(serialNumber);
-    }
 }

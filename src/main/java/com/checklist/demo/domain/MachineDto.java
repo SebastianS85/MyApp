@@ -1,25 +1,25 @@
 package com.checklist.demo.domain;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
-
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 public class MachineDto {
 
-    private String machineSerialNumber;
+
+
+    private String machineSerial;
 
     private String machineType;
 
-    private List<MachineOptionDto> optionList = new ArrayList<>();
+    private List<MachineOptionDto> machineOptions = new ArrayList<>();
 
-    private List<CreatedTestDto> createdTestList = new ArrayList<>();
-
+     private List<CreatedMachineTestDto>tests=new ArrayList<>();
 }

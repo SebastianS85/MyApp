@@ -22,7 +22,7 @@ public class OptionDbService {
         return optionRepository.save(machineOption);
     }
 
-    public Optional<MachineOption> getMachineOpion(Long id) {
+    public Optional<MachineOption> getMachineOption(Long id) {
         return optionRepository.findById(id);
     }
 

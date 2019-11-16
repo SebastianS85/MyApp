@@ -16,7 +16,7 @@ public interface OptionRepository extends CrudRepository<MachineOption, Long> {
     List<MachineOption> findAll();
 
     @Override
-    Optional<MachineOption> findById(Long aLong);
+    Optional<MachineOption> findById(Long Long);
 
     @Override
     MachineOption save(MachineOption machineOption);
