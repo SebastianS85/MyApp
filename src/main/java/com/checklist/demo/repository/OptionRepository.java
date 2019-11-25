@@ -1,7 +1,6 @@
 package com.checklist.demo.repository;
 
-import com.checklist.demo.domain.Machine;
-import com.checklist.demo.domain.MachineOption;
+import com.checklist.demo.domain.machine.MachineOption;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

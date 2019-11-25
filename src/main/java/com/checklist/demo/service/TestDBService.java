@@ -1,6 +1,6 @@
 package com.checklist.demo.service;
 
-import com.checklist.demo.domain.OptionTest;
+import com.checklist.demo.domain.machine.OptionTest;
 import com.checklist.demo.repository.OptionTestRepository;
 import org.springframework.stereotype.Service;
 

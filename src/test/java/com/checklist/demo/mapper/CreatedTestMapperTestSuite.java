@@ -1,9 +1,9 @@
 package com.checklist.demo.mapper;
 
-import com.checklist.demo.domain.CreatedMachineTest;
-import com.checklist.demo.domain.CreatedMachineTestDto;
-import com.checklist.demo.domain.EmbeddedTestKey;
-import com.checklist.demo.domain.ResultEnum;
+import com.checklist.demo.domain.machine.CreatedMachineTest;
+import com.checklist.demo.domain.machine.CreatedMachineTestDto;
+import com.checklist.demo.domain.machine.EmbeddedTestKey;
+import com.checklist.demo.domain.machine.ResultEnum;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

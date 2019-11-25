@@ -1,6 +1,6 @@
 package com.checklist.demo.mapper;
-import com.checklist.demo.domain.MachineOption;
-import com.checklist.demo.domain.MachineOptionDto;
+import com.checklist.demo.domain.machine.MachineOption;
+import com.checklist.demo.domain.machine.MachineOptionDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

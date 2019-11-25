@@ -1,7 +1,7 @@
 package com.checklist.demo.mapper;
 
-import com.checklist.demo.domain.CreatedMachineTest;
-import com.checklist.demo.domain.CreatedMachineTestDto;
+import com.checklist.demo.domain.machine.CreatedMachineTest;
+import com.checklist.demo.domain.machine.CreatedMachineTestDto;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.checklist.demo.domain;
+package com.checklist.demo.domain.machine;
 
 
 import lombok.AllArgsConstructor;

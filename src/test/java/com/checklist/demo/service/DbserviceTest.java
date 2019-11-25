@@ -1,8 +1,7 @@
 package com.checklist.demo.service;
 
 
-import com.checklist.demo.domain.MachineOption;
-import com.checklist.demo.domain.OptionTest;
+import com.checklist.demo.domain.machine.MachineOption;
 import com.checklist.demo.repository.OptionRepository;
 import com.checklist.demo.repository.OptionTestRepository;
 import org.junit.Test;

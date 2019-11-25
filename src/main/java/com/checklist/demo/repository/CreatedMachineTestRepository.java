@@ -1,8 +1,7 @@
 package com.checklist.demo.repository;
 
-import com.checklist.demo.domain.CreatedMachineTest;
-import com.checklist.demo.domain.EmbeddedTestKey;
-import com.checklist.demo.domain.Machine;
+import com.checklist.demo.domain.machine.CreatedMachineTest;
+import com.checklist.demo.domain.machine.EmbeddedTestKey;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

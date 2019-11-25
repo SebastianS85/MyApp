@@ -1,9 +1,10 @@
 package com.checklist.demo.controller;
 
-import com.checklist.demo.domain.OptionTest;
+import com.checklist.demo.domain.machine.OptionTest;
 import com.checklist.demo.repository.OptionTestRepository;
 import com.checklist.demo.service.TestDBService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,13 +24,14 @@ public class OptionTestController {
     @Autowired
     OptionTestRepository testRepository;
 
+
     @GetMapping(value = "getAllTests",produces = "application/json")
     public List<OptionTest> getAllTests() {
 
         return testRepository.findAll();
     }
 
-
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(method = RequestMethod.POST,value = "addTest",consumes = APPLICATION_JSON_VALUE)
     public void createTest(@RequestBody OptionTest optionTest) {
         testRepository.save(optionTest);

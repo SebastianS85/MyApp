@@ -1,6 +1,7 @@
 package com.checklist.demo.controller;
 
-import com.checklist.demo.domain.*;
+import com.checklist.demo.domain.machine.Machine;
+import com.checklist.demo.domain.machine.MachineDto;
 import com.checklist.demo.mapper.MachineMapper;
 import com.checklist.demo.mapper.OptionMapper;
 import com.checklist.demo.repository.MachineRepository;
@@ -12,6 +13,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*")
+@RequestMapping("machine")
 public class MachineController {
 
     @Autowired
@@ -23,7 +25,7 @@ public class MachineController {
     MachineRepository machineRepository;
 
 
-    @GetMapping(value = "getAllMachines",produces ="application/json" )
+    @GetMapping(value = "getAllmachines",produces ="application/json" )
     public List<MachineDto>getAllMachines(){
         return machineMapper.mapToMachineDtoList(machineRepository.findAll());
     }

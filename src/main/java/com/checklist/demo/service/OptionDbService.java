@@ -1,7 +1,7 @@
 package com.checklist.demo.service;
 
 
-import com.checklist.demo.domain.MachineOption;
+import com.checklist.demo.domain.machine.MachineOption;
 import com.checklist.demo.repository.OptionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

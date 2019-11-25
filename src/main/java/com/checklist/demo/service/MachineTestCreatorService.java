@@ -1,6 +1,6 @@
 package com.checklist.demo.service;
 
-import com.checklist.demo.domain.*;
+import com.checklist.demo.domain.machine.*;
 import com.checklist.demo.repository.CreatedMachineTestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

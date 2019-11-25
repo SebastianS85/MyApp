@@ -1,7 +1,7 @@
 package com.checklist.demo.mapper;
 
-import com.checklist.demo.domain.Machine;
-import com.checklist.demo.domain.MachineDto;
+import com.checklist.demo.domain.machine.Machine;
+import com.checklist.demo.domain.machine.MachineDto;
 import com.checklist.demo.service.CreatedTestServeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

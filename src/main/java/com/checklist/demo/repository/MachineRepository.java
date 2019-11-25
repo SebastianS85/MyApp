@@ -1,10 +1,9 @@
 package com.checklist.demo.repository;
 
-import com.checklist.demo.domain.Machine;
+import com.checklist.demo.domain.machine.Machine;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 

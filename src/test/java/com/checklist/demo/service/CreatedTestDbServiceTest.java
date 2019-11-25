@@ -1,8 +1,8 @@
 package com.checklist.demo.service;
 
-import com.checklist.demo.domain.CreatedMachineTest;
-import com.checklist.demo.domain.EmbeddedTestKey;
-import com.checklist.demo.domain.ResultEnum;
+import com.checklist.demo.domain.machine.CreatedMachineTest;
+import com.checklist.demo.domain.machine.EmbeddedTestKey;
+import com.checklist.demo.domain.machine.ResultEnum;
 import com.checklist.demo.repository.CreatedMachineTestRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;

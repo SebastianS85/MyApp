@@ -1,5 +1,8 @@
 package com.checklist.demo.domain;
 
+import com.checklist.demo.domain.machine.Machine;
+import com.checklist.demo.domain.machine.MachineOption;
+import com.checklist.demo.domain.machine.OptionTest;
 import com.checklist.demo.repository.CreatedMachineTestRepository;
 import com.checklist.demo.repository.MachineRepository;
 import com.checklist.demo.repository.OptionRepository;
@@ -10,11 +13,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import java.util.List;
-
-
-import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

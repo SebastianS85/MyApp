@@ -1,6 +1,6 @@
 package com.checklist.demo.repository;
 
-import com.checklist.demo.domain.OptionTest;
+import com.checklist.demo.domain.machine.OptionTest;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

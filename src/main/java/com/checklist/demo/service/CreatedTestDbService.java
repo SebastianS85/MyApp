@@ -1,8 +1,7 @@
 package com.checklist.demo.service;
-import com.checklist.demo.domain.CreatedMachineTest;
-import com.checklist.demo.domain.EmbeddedTestKey;
+import com.checklist.demo.domain.machine.CreatedMachineTest;
+import com.checklist.demo.domain.machine.EmbeddedTestKey;
 import com.checklist.demo.repository.CreatedMachineTestRepository;
-import jdk.nashorn.internal.runtime.options.Option;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
